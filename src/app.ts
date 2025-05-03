@@ -57,6 +57,10 @@ const renderCategories = () => {
         categoryInputElement.type = "radio";
         categoryInputElement.name = "category";
 
+        categoryInputElement.addEventListener("change", () => {
+            selectedCategory = category;
+        })
+
         categoryElement.appendChild(categoryLabelElement);
         categoryElement.appendChild(categoryInputElement);
 
@@ -74,22 +78,31 @@ const renderTasks = () => {
             taskElement.classList.add(task.category);
         }
 
+        const labelAndInputContainer: HTMLElement = document.createElement("div");
+        labelAndInputContainer.classList.add("tasks_buttons");
+
         const labelElement: HTMLLabelElement = document.createElement("label");
         labelElement.innerText = task.name;
         labelElement.setAttribute("for", id);
 
         const inputElement: HTMLInputElement = document.createElement("input");
-        inputElement.type = "button";
+        inputElement.type = "checkbox";
         inputElement.value = "-"
         inputElement.name = task.name;
         inputElement.id = id;
-        // inputElement.checked = task.done;
-        // inputElement.addEventListener("change", () => {
-        //     task.done = !task.done
-        // })
+        inputElement.checked = task.done;
+        inputElement.addEventListener("change", () => {
+            task.done = !task.done
+        });
+
+        const buttonElement: HTMLButtonElement = document.createElement("button");
+        buttonElement.innerHTML = "-";
+        buttonElement.classList.add("usun");
 
         taskElement.appendChild(labelElement);
-        taskElement.appendChild(inputElement);
+        taskElement.appendChild(labelAndInputContainer);
+        labelAndInputContainer.appendChild(inputElement);
+        labelAndInputContainer.appendChild(buttonElement);
 
         tasksListElement.appendChild(taskElement);
     });
@@ -109,10 +122,10 @@ taskButtonElement.addEventListener("click", (event: Event) => {
         return;
     }
 
-    // if (!selectedCategory) {
-    //     alert("Wybierz kategorię!");
-    //     return;
-    // }
+    if (!selectedCategory) {
+        alert("Wybierz kategorię!");
+        return;
+    }
 
     addTask(
         {
