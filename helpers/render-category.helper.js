@@ -7,10 +7,16 @@ export const renderCategories = (categories, selectedCategory, saveDataLocalStor
         const categoryInputElement = document.createElement("input");
         categoryInputElement.type = "radio";
         categoryInputElement.name = "category";
+        categoryInputElement.value = category;
+        categoryInputElement.id = `category-${category}`;
         categoryInputElement.addEventListener("change", () => {
             selectedCategory = category;
+            console.log("Wybrano kategorię:", selectedCategory);
             saveDataLocalStorage();
         });
+        if (selectedCategory === category) {
+            categoryInputElement.checked = true;
+        }
         categoryElement.appendChild(categoryLabelElement);
         categoryElement.appendChild(categoryInputElement);
         categoriesListElement.appendChild(categoryElement);
