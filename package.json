@@ -7,7 +7,7 @@
   "scripts": {
     "compile": "tsc --watch",
     "start": "tsc && serve dist",  
-    "build": "tsc", 
+    "build": "tsc && copy index.html dist", 
     "predeploy": "npm run build", 
     "deploy": "gh-pages -d dist"  
   },
