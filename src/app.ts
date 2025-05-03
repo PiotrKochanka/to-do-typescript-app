@@ -1,24 +1,13 @@
+import { Task, Category } from './types/types.js';
+import { renderCategories } from './helpers/render-category.helper.js';
+import { renderTasks } from './helpers/render-tasks.helper.js';
+
 const tasksListElement: HTMLElement = document.querySelector(".todo_tasks");
 const categoriesListElement: HTMLElement = document.querySelector(".todo_categories");
 const taskButtonElement: HTMLButtonElement = document.querySelector(".todo_add_button");
 const taskNameInputELement: HTMLInputElement = document.querySelector("#add_input");
 
 let selectedCategory: Category;
-
-interface Task {
-    name: string;
-    done: boolean;
-    category?: Category;
-}
-
-enum Category {
-    GENERAL = "general",
-    WORK = "work",
-    HOBBY = "hobby",
-    SPORT = "sport",
-    GYM = "gym",
-    SCHOOL = "school"
-}
 
 const categories: Category[] = [
     Category.GENERAL,
@@ -29,87 +18,28 @@ const categories: Category[] = [
     Category.SCHOOL
 ]
 
-const tasks: Task[] = [
-    {
-        name: "wynieść śmieci",
-        done: false,
-        category: Category.WORK
-    },
-    {
-        name: "nakarmić psa",
-        done: true
-    },
-    {
-        name: "poćwiczyć na siłowni",
-        done: false
+let tasks: Task[] = [];
+
+const saveDataLocalStorage = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("selectedCategory", selectedCategory || Category.GENERAL);
+}
+
+const loadDataFromLocalStorage = () => {
+    const tasksFromStorage = localStorage.getItem("tasks");
+    const categoryFromStorage = localStorage.getItem("selectedCategory");
+
+    if (tasksFromStorage) {
+        tasks = JSON.parse(tasksFromStorage);
     }
-]
-
-const renderCategories = () => {
-    categories.forEach((category) => {
-        const categoryElement: HTMLElement = document.createElement("li");
-        categoryElement.classList.add(category);
-
-        const categoryLabelElement: HTMLLabelElement = document.createElement("label");
-        categoryLabelElement.innerText = category;
-
-        const categoryInputElement: HTMLInputElement = document.createElement("input");
-        categoryInputElement.type = "radio";
-        categoryInputElement.name = "category";
-
-        categoryInputElement.addEventListener("change", () => {
-            selectedCategory = category;
-        })
-
-        categoryElement.appendChild(categoryLabelElement);
-        categoryElement.appendChild(categoryInputElement);
-
-        categoriesListElement.appendChild(categoryElement);
-    });
-}
-
-const renderTasks = () => {
-    tasksListElement.innerHTML = "";
-    tasks.forEach((task, index) => {
-        const id: string = `task-${index}`;
-
-        const taskElement: HTMLElement = document.createElement("li");
-        if(task.category){
-            taskElement.classList.add(task.category);
-        }
-
-        const labelAndInputContainer: HTMLElement = document.createElement("div");
-        labelAndInputContainer.classList.add("tasks_buttons");
-
-        const labelElement: HTMLLabelElement = document.createElement("label");
-        labelElement.innerText = task.name;
-        labelElement.setAttribute("for", id);
-
-        const inputElement: HTMLInputElement = document.createElement("input");
-        inputElement.type = "checkbox";
-        inputElement.value = "-"
-        inputElement.name = task.name;
-        inputElement.id = id;
-        inputElement.checked = task.done;
-        inputElement.addEventListener("change", () => {
-            task.done = !task.done
-        });
-
-        const buttonElement: HTMLButtonElement = document.createElement("button");
-        buttonElement.innerHTML = "-";
-        buttonElement.classList.add("usun");
-
-        taskElement.appendChild(labelElement);
-        taskElement.appendChild(labelAndInputContainer);
-        labelAndInputContainer.appendChild(inputElement);
-        labelAndInputContainer.appendChild(buttonElement);
-
-        tasksListElement.appendChild(taskElement);
-    });
-}
+    if (categoryFromStorage) {
+        selectedCategory = categoryFromStorage as Category;
+    }
+};
 
 const addTask = (task: Task) => {
     tasks.push(task);
+    saveDataLocalStorage();
 }
 
 taskButtonElement.addEventListener("click", (event: Event) => {
@@ -122,22 +52,18 @@ taskButtonElement.addEventListener("click", (event: Event) => {
         return;
     }
 
-    if (!selectedCategory) {
-        alert("Wybierz kategorię!");
-        return;
-    }
-
     addTask(
         {
             name: taskNameInputELement.value,
             done: false,
-            category: selectedCategory
+            category: selectedCategory || Category.GENERAL
         }
     );
 
     taskNameInputELement.value = "";
-    renderTasks();
+    renderTasks(tasksListElement, tasks, saveDataLocalStorage);
 });
 
-renderCategories();
-renderTasks();
+loadDataFromLocalStorage();
+renderCategories(categories, selectedCategory, saveDataLocalStorage, categoriesListElement);
+renderTasks(tasksListElement, tasks, saveDataLocalStorage);
