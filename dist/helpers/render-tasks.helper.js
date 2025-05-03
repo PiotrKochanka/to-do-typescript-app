@@ -3,6 +3,7 @@ export const renderTasks = (tasksListElement, tasks, saveDataLocalStorage) => {
     tasks.forEach((task, index) => {
         const id = `task-${index}`;
         const taskElement = document.createElement("li");
+        console.log(task.category);
         if (task.category) {
             taskElement.classList.add(task.category);
         }

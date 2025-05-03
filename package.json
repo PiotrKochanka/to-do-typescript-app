@@ -3,10 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://PiotrKochanka.github.io/to-do-typescript-app", 
   "scripts": {
-    "compile": "tsc --watch"
+    "compile": "tsc --watch",
+    "start": "tsc && serve dist",  
+    "build": "tsc", 
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d dist"  
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
 }

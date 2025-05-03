@@ -7,6 +7,7 @@ export const renderTasks = (tasksListElement: HTMLElement, tasks: Task[], saveDa
         const id: string = `task-${index}`;
 
         const taskElement: HTMLElement = document.createElement("li");
+        console.log(task.category);
         if (task.category) {
             taskElement.classList.add(task.category);
         }

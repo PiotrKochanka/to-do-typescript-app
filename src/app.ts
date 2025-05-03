@@ -22,7 +22,6 @@ let tasks: Task[] = [];
 
 const saveDataLocalStorage = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    localStorage.setItem("selectedCategory", selectedCategory || Category.GENERAL);
 }
 
 const loadDataFromLocalStorage = () => {
@@ -31,10 +30,22 @@ const loadDataFromLocalStorage = () => {
 
     if (tasksFromStorage) {
         tasks = JSON.parse(tasksFromStorage);
+
+        // Dla każdego zadania sprawdź, czy ma przypisaną kategorię
+        tasks.forEach(task => {
+            if (!task.category) {
+                task.category = Category.GENERAL;  // Przypisz kategorię domyślną, jeśli brak
+            }
+        });
     }
+
     if (categoryFromStorage) {
         selectedCategory = categoryFromStorage as Category;
+    } else {
+        selectedCategory = Category.GENERAL;  // Domyślna kategoria, jeśli brak
     }
+
+    console.log("Załadowana kategoria:", selectedCategory);
 };
 
 const addTask = (task: Task) => {
@@ -52,13 +63,13 @@ taskButtonElement.addEventListener("click", (event: Event) => {
         return;
     }
 
-    addTask(
-        {
-            name: taskNameInputELement.value,
-            done: false,
-            category: selectedCategory || Category.GENERAL
-        }
-    );
+    const newTask: Task = {
+        name: taskNameInputELement.value,
+        done: false,
+        category: selectedCategory || Category.GENERAL
+    };
+
+    addTask(newTask);
 
     taskNameInputELement.value = "";
     renderTasks(tasksListElement, tasks, saveDataLocalStorage);

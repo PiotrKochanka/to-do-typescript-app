@@ -14,8 +14,13 @@ export const renderCategories = (categories: Category[], selectedCategory: Categ
 
         categoryInputElement.addEventListener("change", () => {
             selectedCategory = category;
+            console.log("Wybrano kategorię:", selectedCategory);
             saveDataLocalStorage();
         })
+
+        if (selectedCategory === category) {
+            categoryInputElement.checked = true;
+        }
 
         categoryElement.appendChild(categoryLabelElement);
         categoryElement.appendChild(categoryInputElement);
