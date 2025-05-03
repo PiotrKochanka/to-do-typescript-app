@@ -1,0 +1,46 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    -webkit-text-size-adjust: none;
+    overflow-x: hidden;
+    transition: padding .5s linear;
+}
+.container{
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    background: #1c00a8;
+    background: linear-gradient(207deg,rgba(28, 0, 168, 1) 0%, rgba(10, 90, 166, 1) 61%, rgba(0, 152, 183, 1) 100%);
+}
+.todo_block{
+    background-color: white;
+    padding: 24px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 2rem;
+}
+#add_input{
+    width: 100%;
+    border-radius: 1rem;
+    padding: 0px 24px;
+    height: 48px;
+    border: 1px solid rgba(128, 128, 128, 0.281);
+    box-sizing: border-box;
+}
+.todo_input{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+.todo_input > button{
+    min-width: 100px;
+    background-color: #1c00a8;
+    color: white;
+    border-radius: 1rem;
+    border: 0px none transparent;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+}
