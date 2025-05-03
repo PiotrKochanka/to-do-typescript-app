@@ -17,26 +17,17 @@ const categories = [
 let tasks = [];
 const saveDataLocalStorage = () => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("selectedCategory", selectedCategory || Category.GENERAL);
 };
 const loadDataFromLocalStorage = () => {
     const tasksFromStorage = localStorage.getItem("tasks");
     const categoryFromStorage = localStorage.getItem("selectedCategory");
     if (tasksFromStorage) {
         tasks = JSON.parse(tasksFromStorage);
-        // Dla każdego zadania sprawdź, czy ma przypisaną kategorię
-        tasks.forEach(task => {
-            if (!task.category) {
-                task.category = Category.GENERAL; // Przypisz kategorię domyślną, jeśli brak
-            }
-        });
     }
     if (categoryFromStorage) {
         selectedCategory = categoryFromStorage;
     }
-    else {
-        selectedCategory = Category.GENERAL; // Domyślna kategoria, jeśli brak
-    }
-    console.log("Załadowana kategoria:", selectedCategory);
 };
 const addTask = (task) => {
     tasks.push(task);
@@ -49,12 +40,11 @@ taskButtonElement.addEventListener("click", (event) => {
         alert("Wpisz nazwę zadania!");
         return;
     }
-    const newTask = {
+    addTask({
         name: taskNameInputELement.value,
         done: false,
         category: selectedCategory || Category.GENERAL
-    };
-    addTask(newTask);
+    });
     taskNameInputELement.value = "";
     renderTasks(tasksListElement, tasks, saveDataLocalStorage);
 });

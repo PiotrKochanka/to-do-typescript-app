@@ -11,6 +11,8 @@ export const renderCategories = (categories: Category[], selectedCategory: Categ
         const categoryInputElement: HTMLInputElement = document.createElement("input");
         categoryInputElement.type = "radio";
         categoryInputElement.name = "category";
+        categoryInputElement.value = category;
+        categoryInputElement.id = `category-${category}`;
 
         categoryInputElement.addEventListener("change", () => {
             selectedCategory = category;
