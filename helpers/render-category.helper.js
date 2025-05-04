@@ -1,4 +1,4 @@
-export const renderCategories = (categories, selectedCategory, saveDataLocalStorage, categoriesListElement) => {
+export const renderCategories = (categories, selectedCategory, saveDataLocalStorage, categoriesListElement, onCategoryChange) => {
     categories.forEach((category) => {
         const categoryElement = document.createElement("li");
         categoryElement.classList.add(category);
@@ -10,8 +10,7 @@ export const renderCategories = (categories, selectedCategory, saveDataLocalStor
         categoryInputElement.value = category;
         categoryInputElement.id = `category-${category}`;
         categoryInputElement.addEventListener("change", () => {
-            selectedCategory = category;
-            console.log("Wybrano kategorię:", selectedCategory);
+            onCategoryChange(category);
             saveDataLocalStorage();
         });
         if (selectedCategory === category) {
