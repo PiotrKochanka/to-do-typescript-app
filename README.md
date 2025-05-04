@@ -7,12 +7,6 @@ Prosta aplikacja typu To-Do stworzona w czystym TypeScript — bez frameworków,
 
 ---
 
-## 📸 Zrzuty ekranu
-
-![Zrzut ekranu aplikacji](./screenshot.png) <!-- dodaj zrzut do repozytorium jako screenshot.png -->
-
----
-
 ## 🔧 Technologie
 
 - TypeScript
@@ -66,7 +60,7 @@ Edytuj
 Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi gh-pages. 
 
 Link do wersji online:
-## 📍 https://piotrkochanka.github.io/to-do-typescript-app/
+📍 https://piotrkochanka.github.io/to-do-typescript-app/
 
 ## ✍️ Autor
 Projekt stworzony przez Piotr Kochanka.
