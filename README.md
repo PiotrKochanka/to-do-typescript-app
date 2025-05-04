@@ -7,12 +7,6 @@ Prosta aplikacja typu To-Do stworzona w czystym TypeScript — bez frameworków,
 
 ---
 
-## 📸 Zrzuty ekranu
-
-![Zrzut ekranu aplikacji](./screenshot.png) <!-- dodaj zrzut do repozytorium jako screenshot.png -->
-
----
-
 ## 🔧 Technologie
 
 - TypeScript
