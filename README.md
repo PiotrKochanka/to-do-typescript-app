@@ -47,20 +47,24 @@ Edytuj
 cd to-do-typescript-app
 Otwórz plik index.html w przeglądarce lub uruchom lokalny serwer (np. Live Server w VS Code).
 
-📁 Struktura plików
+## 📁 Struktura plików
 pgsql
 Kopiuj
 Edytuj
-📦 to-do-typescript-app/
+
+## 📦 to-do-typescript-app/
 ├── 📁 helpers/
 ├── 📁 types/
 ├── 📄 index.html
 ├── 📄 app.ts
 ├── 📄 style.css
 ├── 📄 README.md
-🌐 Hosting na GitHub Pages
-Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi main (lub gh-pages jeśli używasz tej gałęzi). Link do wersji online:
-📍 https://piotrkochanka.github.io/to-do-typescript-app/
 
-✍️ Autor
+## 🌐 Hosting na GitHub Pages
+Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi main (lub gh-pages jeśli używasz tej gałęzi). 
+
+Link do wersji online:
+## 📍 https://piotrkochanka.github.io/to-do-typescript-app/
+
+## ✍️ Autor
 Projekt stworzony przez Piotr Kochanka.
