@@ -20,7 +20,7 @@ body *{
 }
 .todo_block{
     background-color: rgba(255, 255, 255, 0.863);
-    padding: 24px 40px 40px 40px;
+    padding: 24px 40px;
     max-width: 600px;
     margin: 0 auto;
     border-radius: 2rem;
@@ -61,11 +61,6 @@ body *{
     font-weight: 900;
     text-transform: uppercase;
     cursor: pointer;
-    transition: 0.2s;
-}
-.todo_input > button:hover{
-    transform: scale(1.04);
-    background-color: #2600e6;
 }
 .todo_categories{
     padding: 0px;
@@ -80,28 +75,16 @@ body *{
     width: 49%;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.5rem;
+    padding: 16px 32px;
+    font-size: 14px;
     -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
     -moz-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
     background-color: rgba(255, 255, 255, 0.705);
-    transition: 0.2s;
-}
-.todo_categories > li:hover{
-    transform: scale(1.04);
-}
-.todo_categories > li label{
-    width: 100%;
-    padding: 24px 16px 24px 32px;
-    font-size: 16px;
+    border-radius: 0.5rem;
     font-weight: 300;
     overflow: hidden;
     position: relative;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
 }
 .general:after{
     content: "";
@@ -141,7 +124,7 @@ body *{
 }
 .gym:after{
     content: "";
-    background-color: rgb(162, 165, 0);
+    background-color: rgb(11, 0, 165);
     width: 16px;
     height: 100%;
     position: absolute;

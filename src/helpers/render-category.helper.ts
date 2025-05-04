@@ -30,7 +30,7 @@ export const renderCategories = (
         }
 
         categoryElement.appendChild(categoryLabelElement);
-        categoryElement.appendChild(categoryInputElement);
+        categoryLabelElement.appendChild(categoryInputElement);
 
         categoriesListElement.appendChild(categoryElement);
     });
