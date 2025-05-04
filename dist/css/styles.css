@@ -1,0 +1,182 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    -webkit-text-size-adjust: none;
+    overflow-x: hidden;
+    transition: padding .5s linear;
+    font-family: "Roboto", sans-serif;
+}
+body *{
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    min-width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    padding: 40px;
+    background: #1c00a8;
+    background: linear-gradient(207deg,rgba(28, 0, 168, 1) 0%, rgba(10, 90, 166, 1) 61%, rgba(0, 152, 183, 1) 100%);
+}
+.todo_block{
+    background-color: rgba(255, 255, 255, 0.863);
+    padding: 24px 40px 40px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 2rem;
+}
+.todo_h1{
+    padding: 0px;
+    margin-bottom: 32px;
+    font-weight: 400;
+    color: #1f2ac5;
+}
+.todo_h2{
+    padding: 0px;
+    margin-bottom: 16px;
+    margin-top: 32px;
+    font-weight: 400;
+    color: #1f2ac5;
+    text-transform: uppercase;
+}
+#add_input{
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 0px 32px;
+    height: 48px;
+    border: 1px solid rgba(128, 128, 128, 0.281);
+    box-sizing: border-box;
+}
+.todo_input{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+.todo_input > button{
+    min-width: 100px;
+    background-color: #1c00a8;
+    color: white;
+    border-radius: 0.5rem;
+    border: 0px none transparent;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.todo_categories{
+    padding: 0px;
+    margin: 16px 0px 0px 0px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+}
+.todo_categories > li{
+    width: 49%;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    font-size: 14px;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.705);
+    border-radius: 0.5rem;
+    font-weight: 300;
+    overflow: hidden;
+    position: relative;
+}
+.general:after{
+    content: "";
+    background-color: rgb(10, 56, 10);
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.work:after{
+    content: "";
+    background-color: rgb(209, 66, 0);
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.hobby:after{
+    content: "";
+    background-color: rgb(0, 123, 206);
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.sport:after{
+    content: "";
+    background-color: rgb(0, 170, 23);
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.gym:after{
+    content: "";
+    background-color: rgb(11, 0, 165);
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.school:after{
+    content: "";
+    background-color: rgb(144, 0, 163);
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.todo_tasks{
+    padding: 0px;
+    margin: 16px 0px 0px 0px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.todo_tasks > li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 300;
+    padding: 0px 0px 0px 32px;
+    border-radius: 0.5rem;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 0.705);
+    position: relative;
+    overflow: hidden;
+    font-size: 14px;
+}
+.checked{
+    filter: grayscale(90%);
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+.usun{
+    width: 40px;
+    height: 40px;
+    border: 0px none transparent;
+    background-color: rgb(236, 236, 236);
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(214, 0, 0);
+    cursor: pointer;
+    margin-left: 16px;
+}

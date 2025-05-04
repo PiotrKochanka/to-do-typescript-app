@@ -65,5 +65,17 @@ taskButtonElement.addEventListener("click", (event: Event) => {
 });
 
 loadDataFromLocalStorage();
-renderCategories(categories, selectedCategory, saveDataLocalStorage, categoriesListElement);
-renderTasks(tasksListElement, tasks, saveDataLocalStorage);
+renderCategories(
+    categories, 
+    selectedCategory, 
+    saveDataLocalStorage, 
+    categoriesListElement,
+    (category: Category) => {
+        selectedCategory = category;
+    }
+);
+renderTasks(
+    tasksListElement, 
+    tasks, 
+    saveDataLocalStorage
+);

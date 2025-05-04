@@ -1,6 +1,12 @@
 import { Category } from '../types/types.js';
 
-export const renderCategories = (categories: Category[], selectedCategory: Category,  saveDataLocalStorage: Function, categoriesListElement: HTMLElement) => {
+export const renderCategories = (
+    categories: Category[], 
+    selectedCategory: Category,  
+    saveDataLocalStorage: Function, 
+    categoriesListElement: HTMLElement, 
+    onCategoryChange: (category: Category) => void
+) => {
     categories.forEach((category) => {
         const categoryElement: HTMLElement = document.createElement("li");
         categoryElement.classList.add(category);
@@ -15,8 +21,7 @@ export const renderCategories = (categories: Category[], selectedCategory: Categ
         categoryInputElement.id = `category-${category}`;
 
         categoryInputElement.addEventListener("change", () => {
-            selectedCategory = category;
-            console.log("Wybrano kategorię:", selectedCategory);
+            onCategoryChange(category);
             saveDataLocalStorage();
         })
 

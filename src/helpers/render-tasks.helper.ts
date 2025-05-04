@@ -1,6 +1,10 @@
 import { Task } from '../types/types.js';
 
-export const renderTasks = (tasksListElement: HTMLElement, tasks: Task[], saveDataLocalStorage: Function) => {
+export const renderTasks = (
+    tasksListElement: HTMLElement, 
+    tasks: Task[], 
+    saveDataLocalStorage: Function
+) => {
     tasksListElement.innerHTML = "";  // Czyszczenie listy zadań przed jej renderowaniem
 
     tasks.forEach((task, index) => {
