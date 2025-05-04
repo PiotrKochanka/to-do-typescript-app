@@ -60,6 +60,8 @@ Edytuj
 ├── 📄 style.css
 ├── 📄 README.md
 
+---
+
 ## 🌐 Hosting na GitHub Pages
 Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi gh-pages. 
 
