@@ -61,7 +61,7 @@ Edytuj
 ├── 📄 README.md
 
 ## 🌐 Hosting na GitHub Pages
-Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi main (lub gh-pages jeśli używasz tej gałęzi). 
+Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi gh-pages. 
 
 Link do wersji online:
 ## 📍 https://piotrkochanka.github.io/to-do-typescript-app/
