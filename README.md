@@ -37,5 +37,34 @@ Prosta aplikacja typu To-Do stworzona w czystym TypeScript — bez frameworków,
 
 1. Sklonuj repozytorium:
 
-```bash
+bash
 git clone https://github.com/piotrkochanka/to-do-typescript-app.git
+Przejdź do folderu projektu:
+
+bash
+Kopiuj
+Edytuj
+cd to-do-typescript-app
+Otwórz plik index.html w przeglądarce lub uruchom lokalny serwer (np. Live Server w VS Code).
+
+## 📁 Struktura plików
+pgsql
+Kopiuj
+Edytuj
+
+## 📦 to-do-typescript-app/
+├── 📁 helpers/
+├── 📁 types/
+├── 📄 index.html
+├── 📄 app.ts
+├── 📄 style.css
+├── 📄 README.md
+
+## 🌐 Hosting na GitHub Pages
+Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi gh-pages. 
+
+Link do wersji online:
+## 📍 https://piotrkochanka.github.io/to-do-typescript-app/
+
+## ✍️ Autor
+Projekt stworzony przez Piotr Kochanka.
