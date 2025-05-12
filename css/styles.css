@@ -157,7 +157,7 @@ body *{
     left: 0px;
     top: 0px;
 }
-.todo_tasks{
+.todo_tasks, .todo_tasks_done{
     padding: 0px;
     margin: 16px 0px 0px 0px;
     list-style-type: none;
@@ -165,7 +165,7 @@ body *{
     flex-direction: column;
     gap: 8px;
 }
-.todo_tasks > li{
+.todo_tasks > li, .todo_tasks_done > li{
     width: 100%;
     display: flex;
     justify-content: space-between;
