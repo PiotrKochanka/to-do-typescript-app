@@ -6,6 +6,7 @@ const tasksListElement: HTMLElement = document.querySelector(".todo_tasks");
 const categoriesListElement: HTMLElement = document.querySelector(".todo_categories");
 const taskButtonElement: HTMLButtonElement = document.querySelector(".todo_add_button");
 const taskNameInputELement: HTMLInputElement = document.querySelector("#add_input");
+const taskDoneElement: HTMLElement = document.querySelector(".todo_tasks_done");
 
 let selectedCategory: Category;
 

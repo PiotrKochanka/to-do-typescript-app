@@ -1,9 +1,10 @@
+const taskDoneElement = document.querySelector(".todo_tasks_done");
 export const renderTasks = (tasksListElement, tasks, saveDataLocalStorage) => {
-    tasksListElement.innerHTML = ""; // Czyszczenie listy zadań przed jej renderowaniem
+    tasksListElement.innerHTML = "";
+    taskDoneElement.innerHTML = "";
     tasks.forEach((task, index) => {
         const id = `task-${index}`;
         const taskElement = document.createElement("li");
-        console.log(task.category);
         if (task.category) {
             taskElement.classList.add(task.category);
         }
@@ -17,30 +18,30 @@ export const renderTasks = (tasksListElement, tasks, saveDataLocalStorage) => {
         inputElement.name = task.name;
         inputElement.id = id;
         inputElement.checked = task.done;
-        inputElement.addEventListener("change", () => {
-            task.done = !task.done;
-            task.done
-                ? taskElement.classList.add("checked")
-                : taskElement.classList.remove("checked");
-            saveDataLocalStorage(); // Zapisz dane w localStorage
-        });
         const buttonElement = document.createElement("button");
         buttonElement.innerHTML = "x";
         buttonElement.classList.add("usun");
         buttonElement.addEventListener("click", () => {
-            removeTask(index, tasks, tasksListElement, saveDataLocalStorage); // Usuwanie zadania
+            removeTask(index, tasks, tasksListElement, saveDataLocalStorage);
+        });
+        inputElement.addEventListener("change", () => {
+            task.done = !task.done;
+            saveDataLocalStorage();
+            renderTasks(tasksListElement, tasks, saveDataLocalStorage);
         });
         if (task.done) {
             taskElement.classList.add("checked");
+            taskDoneElement.appendChild(taskElement);
+        }
+        else {
+            tasksListElement.appendChild(taskElement);
         }
         taskElement.appendChild(labelElement);
         taskElement.appendChild(labelAndInputContainer);
         labelAndInputContainer.appendChild(inputElement);
         labelAndInputContainer.appendChild(buttonElement);
-        tasksListElement.appendChild(taskElement);
     });
 };
-// Funkcja do usuwania zadania
 const removeTask = (index, tasks, tasksListElement, saveDataLocalStorage) => {
     tasks.splice(index, 1);
     renderTasks(tasksListElement, tasks, saveDataLocalStorage);
