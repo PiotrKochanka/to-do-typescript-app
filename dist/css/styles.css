@@ -197,3 +197,15 @@ body *{
     cursor: pointer;
     margin-left: 16px;
 }
+
+@media (min-width: 320px) and (max-width: 1023px) {
+    .container{
+        padding: 16px;
+    }
+    .todo_categories > li{
+        width: 48%;
+    }
+    .todo_block{
+        padding: 24px 24px 24px 24px;
+    }
+}
